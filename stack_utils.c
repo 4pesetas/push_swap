@@ -1,3 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   stack_utils.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: iumorave <iumorave@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/21 16:44:48 by iumorave          #+#    #+#             */
+/*   Updated: 2025/01/21 16:44:53 by iumorave         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+
+
 #include "push_swap.h"
 
 int	stack_len(t_stack_node *stack)
@@ -24,7 +38,7 @@ t_stack_node	*find_last(t_stack_node *stack)
 	return (stack);
 }
 
-boll	stack_sorted(t_stack_node *stack)
+bool	stack_sorted(t_stack_node *stack)
 {
 	if (!stack)
 		return (1);

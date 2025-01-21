@@ -1,34 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iumorave <iumorave@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/29 15:08:09 by iumorave          #+#    #+#             */
-/*   Updated: 2025/01/18 19:09:08 by iumorave         ###   ########.fr       */
+/*   Created: 2025/01/21 17:49:52 by iumorave          #+#    #+#             */
+/*   Updated: 2025/01/21 18:39:47 by iumorave         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "../push_swap.h"
 
-# include <stdbool.h>
-# include <limits.h>
-# include "../libft/libft.h"
-# include "../ft_printf/ft_printf.h"
-
-typedef struct s_stack_node
+static void	rotate(t_stack_node **stack)
 {
-	int					nbr;
-	int					index;
-	int					push_cost;
-	bool				above_median;
-	bool				cheapest;
+	t_stack_node	*last_node;
 
-	struct s_stack_node	*target_node;
-	struct s_stack_node	*next;
-	struct s_stack_node	*prev;
-}	t_stack_node;
+	if(!*stack || !(*stack)->next)
+		return ;
+	last_node = find_last(*stack);
+	last_node->next = *stack;
+	*stack = (*stack)->next;
+	(*stack)->prev = NULL;
+	last_node->next->prev = last_node;
+	last_node->next->next = NULL;
+}
 
-#endif
+void	ra()

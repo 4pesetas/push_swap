@@ -1,34 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   sort_three.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iumorave <iumorave@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/29 15:08:09 by iumorave          #+#    #+#             */
-/*   Updated: 2025/01/18 19:09:08 by iumorave         ###   ########.fr       */
+/*   Created: 2025/01/21 16:44:07 by iumorave          #+#    #+#             */
+/*   Updated: 2025/01/21 17:09:14 by iumorave         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "../push_swap.h"
 
-# include <stdbool.h>
-# include <limits.h>
-# include "../libft/libft.h"
-# include "../ft_printf/ft_printf.h"
-
-typedef struct s_stack_node
+void	sort_three(t_stack_node **a)
 {
-	int					nbr;
-	int					index;
-	int					push_cost;
-	bool				above_median;
-	bool				cheapest;
+	t_stack_node	*max;
 
-	struct s_stack_node	*target_node;
-	struct s_stack_node	*next;
-	struct s_stack_node	*prev;
-}	t_stack_node;
-
-#endif
+	max = find_max(*a);
+	if (max == *a)
+		ra(a, false);
+	else if ((*a)->next == max)
+		rra(a, false);
+	if ((*a)->nbr > (*a)->next->nbr)
+		sa(a, false);
+}
