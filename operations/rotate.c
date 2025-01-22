@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iumorave <iumorave@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hp <hp@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 17:49:52 by iumorave          #+#    #+#             */
-/*   Updated: 2025/01/21 18:39:47 by iumorave         ###   ########.fr       */
+/*   Updated: 2025/01/22 21:16:36 by hp               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void	rotate(t_stack_node **stack)
 {
 	t_stack_node	*last_node;
 
-	if(!*stack || !(*stack)->next)
+	if (!*stack || !(*stack)->next)
 		return ;
 	last_node = find_last(*stack);
 	last_node->next = *stack;
@@ -26,4 +26,24 @@ static void	rotate(t_stack_node **stack)
 	last_node->next->next = NULL;
 }
 
-void	ra()
+void	ra(t_stack_node **a, bool print)
+{
+	rotate(a);
+	if (!print)
+		ft_printf("ra\n");
+}
+
+void	rb(t_stack_node **b, bool print)
+{
+	rotate(b);
+	if (!print)
+		ft_printf("rb\n");
+}
+
+void	rr(t_stack_node **a, t_stack_node **b, bool print)
+{
+	rotate(a);
+	rotate(b);
+	if (!print)
+		ft_printf("rr\n");
+}
